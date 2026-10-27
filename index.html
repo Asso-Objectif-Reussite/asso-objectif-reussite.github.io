@@ -69,7 +69,8 @@ footer{margin-top:22px;color:var(--muted);font-size:13px}
 </head>
 <body>
 <main id="app"></main>
-<script src="liens.js"></script>
+<script>/* liens.js toujours frais (jamais la version gardée en cache par le navigateur ou GitHub) : un ajout s'affiche tout de suite */
+document.write('<script src="liens.js?v=' + Date.now() + '"><\/script>');</script>
 <script>
 (function () {
   var L = window.LIENS || {};
