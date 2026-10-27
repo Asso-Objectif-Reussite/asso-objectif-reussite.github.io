@@ -16,6 +16,12 @@ window.LIENS = {
     description: 'Déposer une note de frais et suivre sa validation',
     url: 'https://script.google.com/a/macros/or-edhec.com/s/AKfycbwDuDtT9i1DTTeNFwdwWrtyYJ1aX4ORN_JZmwfmBEKFkm5JtzGgTtW04msujmeYSzQb/exec'
   },
+  
+  'rf': { 
+    titre: 'Cotisations – Reçus fiscaux', 
+    description: 'Demander le reçu fiscal de ta cotisation', 
+    url: 'https://script.google.com/a/macros/or-edhec.com/s/AKfycbwDuDtT9i1DTTeNFwdwWrtyYJ1aX4ORN_JZmwfmBEKFkm5JtzGgTtW04msujmeYSzQb/exec?outil=rf' 
+  },
 
   // 'entretiens': {
   //   titre: 'Entretiens de recrutement',
