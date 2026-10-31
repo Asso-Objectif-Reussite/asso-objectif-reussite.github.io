@@ -113,14 +113,14 @@ document.write('<script src="liens.js?v=' + Date.now() + '"><\/script>');</scrip
       : 'Le lien <b>/' + esc(cle) + '</b> n\'existe pas. Vérifie l\'adresse ou choisis un outil ci-dessous.') + '</p>';
   }
   html += '<div class="connexion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>' +
-    '<div><b>Connecte-toi avec ton adresse <span class="dom">@or-edhec.com</span></b>' +
-    '<span>Un code de connexion t\'est envoyé par mail.</span></div></div>';
+    '<div><b>Connecte-toi aux outils avec ton adresse <span class="dom">@or-edhec.com</span></b>' +
+    '<span>Un code de connexion te sera envoyé par mail.</span></div></div>';
   var icoPartage = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg>';
   html += cles.length ? '<ul>' + cles.map(function (k) {
     var e = L[k];
     return '<li class="lien"><h2>' + esc(e.titre || k) + '</h2>' +
       (e.description ? '<p class="desc">' + esc(e.description) + '</p>' : '') +
-      '<div class="actions"><a class="btn primary" href="' + esc(e.url) + '">Ouvrir l\'outil</a>' +
+      '<div class="actions"><a class="btn primary" href="' + esc('https://' + court(k)) + '" target="_blank" rel="noopener">Ouvrir l\'outil</a>' +
       '<button type="button" class="btn discret" data-partage="' + esc('https://' + court(k)) + '" aria-label="Partager le lien de ' + esc(e.titre || k) + '">' + icoPartage + 'Partager</button></div></li>';
   }).join('') + '</ul>' : '<ul><li class="vide">Aucun outil pour le moment : ajoute un lien dans liens.js.</li></ul>';
   html += '<div class="toast" role="status" aria-live="polite"></div>';
