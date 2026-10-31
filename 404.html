@@ -30,41 +30,53 @@
 <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#F2F4F7; --surface:#FFFFFF; --ink:#172030; --muted:#5A6474; --line:#DCE1E8;
+  --bg:#F2F4F7; --surface:#FFFFFF; --surface-2:#F7F8FA; --ink:#172030; --muted:#5A6474; --line:#DCE1E8;
+  --navy:#1E3A66; --navy-hover:#172E52; --on-navy:#FFFFFF;
   --gold:#8F6D12; --gold-soft:#F4ECD6; --focus:#2F6FEB;
+  --shadow:0 1px 2px rgba(23,32,48,.06),0 10px 30px rgba(23,32,48,.07);
   box-sizing:border-box; color-scheme:light;
   padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
 }
 @media (prefers-color-scheme:dark){
-  :root{--bg:#11151C; --surface:#1A2029; --ink:#E6EAF0; --muted:#9BA5B4; --line:#2E3643; --gold:#D9B75A; --gold-soft:#3A3220; --focus:#7AA7FF; color-scheme:dark}
+  :root{--bg:#11151C; --surface:#1A2029; --surface-2:#202733; --ink:#E6EAF0; --muted:#9BA5B4; --line:#2E3643;
+    --navy:#8EB0EA; --navy-hover:#A9C3F0; --on-navy:#0F1826;
+    --gold:#D9B75A; --gold-soft:#3A3220; --focus:#7AA7FF;
+    --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px rgba(0,0,0,.25); color-scheme:dark}
 }
 *,*::before,*::after{box-sizing:inherit}
 html,body{margin:0}
 body{background:var(--bg);color:var(--ink);font:16px/1.5 "Public Sans",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;-webkit-font-smoothing:antialiased}
-main{max-width:560px;margin:0 auto;padding:36px 18px 48px}
+main{max-width:560px;margin:0 auto;padding:28px 16px 48px}
 :focus-visible{outline:2px solid var(--focus);outline-offset:2px}
-header{display:flex;align-items:center;gap:14px;margin-bottom:26px}
+header{display:flex;align-items:center;gap:14px;margin-bottom:20px}
 header img{height:44px;width:auto}
 h1{font-size:22px;line-height:1.2;margin:0;letter-spacing:-.015em}
 header p{margin:2px 0 0;color:var(--muted);font-size:14px}
-.notice{background:var(--gold-soft);border-radius:10px;padding:12px 14px;margin:0 0 20px;font-size:14.5px}
-ul{list-style:none;margin:0;padding:0;background:var(--surface);border:1px solid var(--line);border-radius:12px;overflow:hidden}
-li+li{border-top:1px solid var(--line)}
-.lien{display:grid;grid-template-columns:1fr auto;gap:2px 14px;align-items:center;padding:16px 18px}
-.lien a{color:inherit;text-decoration:none;font-weight:600;font-size:17px}
-.lien a:hover{text-decoration:underline}
-.lien a::after{content:"";position:absolute;inset:0}
-.lien{position:relative}
-.lien .desc{grid-column:1;color:var(--muted);font-size:14px}
-.lien .court{grid-column:1;font-size:13.5px;color:var(--gold);font-weight:600;overflow-wrap:anywhere}
-.lien button{grid-column:2;grid-row:1/span 3;position:relative;z-index:1;border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:8px;padding:8px 12px;font:inherit;font-size:13.5px;cursor:pointer;min-height:40px}
-.lien button:hover{background:var(--bg)}
-.vide{padding:22px 18px;color:var(--muted)}
+.notice{background:var(--gold-soft);border-radius:10px;padding:12px 14px;margin:0 0 16px;font-size:14.5px}
+.connexion{display:flex;gap:12px;align-items:flex-start;background:var(--gold-soft);border-left:4px solid var(--gold);border-radius:10px;padding:14px 16px;margin:0 0 18px}
+.connexion svg{flex:none;width:22px;height:22px;margin-top:1px;color:var(--gold)}
+.connexion b{display:block;font-size:16px;line-height:1.35}
+.connexion .dom{color:var(--gold);white-space:nowrap}
+.connexion span{display:block;color:var(--muted);font-size:14px;margin-top:2px}
+ul{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.lien{background:var(--surface);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);padding:16px}
+.lien h2{margin:0;font-size:17px;line-height:1.3}
+.lien .desc{margin:4px 0 0;color:var(--muted);font-size:14px}
+.lien .actions{display:flex;gap:10px;margin-top:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;border-radius:8px;border:1px solid var(--line);background:var(--surface);cursor:pointer;font:inherit;font-weight:600;font-size:15px;text-decoration:none;color:var(--ink)}
+.btn:hover{background:var(--surface-2)}
+.btn.primary{flex:1;background:var(--navy);border-color:var(--navy);color:var(--on-navy)}
+.btn.primary:hover{background:var(--navy-hover)}
+.btn.discret{border-color:transparent;background:transparent;color:var(--muted);font-weight:500;padding:0 12px}
+.btn.discret:hover{background:var(--surface-2);color:var(--ink)}
+.btn svg{width:18px;height:18px;flex:none}
+.vide{padding:22px 18px;color:var(--muted);background:var(--surface);border:1px solid var(--line);border-radius:12px}
 .redir{text-align:center;padding-top:18vh}
 .redir img{height:52px;width:auto;margin-bottom:18px}
 .redir p{margin:6px 0;color:var(--muted)}
 .redir a{color:var(--gold);font-weight:600}
-footer{margin-top:22px;color:var(--muted);font-size:13px}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:11px 18px;border-radius:8px;font-size:14px;box-shadow:var(--shadow);max-width:min(92vw,560px);width:max-content;z-index:50;pointer-events:none;display:none}
+.toast.on{display:block}
 </style>
 </head>
 <body>
@@ -100,23 +112,43 @@ document.write('<script src="liens.js?v=' + Date.now() + '"><\/script>');</scrip
     html += '<p class="notice">' + (lien ? 'Le lien <b>/' + esc(cle) + '</b> n\'est pas encore configuré.'
       : 'Le lien <b>/' + esc(cle) + '</b> n\'existe pas. Vérifie l\'adresse ou choisis un outil ci-dessous.') + '</p>';
   }
+  html += '<div class="connexion"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>' +
+    '<div><b>Connecte-toi avec ton adresse <span class="dom">@or-edhec.com</span></b>' +
+    '<span>Un code de connexion t\'est envoyé par mail.</span></div></div>';
+  var icoPartage = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.6 13.5 6.8 4M15.4 6.5l-6.8 4"/></svg>';
   html += cles.length ? '<ul>' + cles.map(function (k) {
     var e = L[k];
-    return '<li class="lien"><a href="' + esc(e.url) + '">' + esc(e.titre || k) + '</a>' +
-      (e.description ? '<span class="desc">' + esc(e.description) + '</span>' : '') +
-      '<span class="court">' + esc(court(k)) + '</span>' +
-      '<button type="button" data-copie="' + esc('https://' + court(k)) + '">Copier</button></li>';
+    return '<li class="lien"><h2>' + esc(e.titre || k) + '</h2>' +
+      (e.description ? '<p class="desc">' + esc(e.description) + '</p>' : '') +
+      '<div class="actions"><a class="btn primary" href="' + esc(e.url) + '">Ouvrir l\'outil</a>' +
+      '<button type="button" class="btn discret" data-partage="' + esc('https://' + court(k)) + '" aria-label="Partager le lien de ' + esc(e.titre || k) + '">' + icoPartage + 'Partager</button></div></li>';
   }).join('') + '</ul>' : '<ul><li class="vide">Aucun outil pour le moment : ajoute un lien dans liens.js.</li></ul>';
-  html += '<footer>Connexion avec ton adresse @or-edhec.com.</footer>';
+  html += '<div class="toast" role="status" aria-live="polite"></div>';
   app.innerHTML = html;
 
+  var toast = app.querySelector('.toast'), minuteur;
+  var annonce = function (txt) {
+    toast.textContent = txt; toast.classList.add('on');
+    clearTimeout(minuteur); minuteur = setTimeout(function () { toast.classList.remove('on'); }, 2500);
+  };
+  // Copie de secours (ancien navigateur, page sans HTTPS…)
+  var copieSecours = function (txt) {
+    var t = document.createElement('textarea');
+    t.value = txt; t.setAttribute('readonly', ''); t.style.position = 'fixed'; t.style.opacity = '0';
+    document.body.appendChild(t); t.select();
+    var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
+    document.body.removeChild(t);
+    return ok;
+  };
+
   app.addEventListener('click', function (ev) {
-    var b = ev.target.closest('[data-copie]');
+    var b = ev.target.closest('[data-partage]');
     if (!b) return;
-    var txt = b.getAttribute('data-copie');
-    var ok = function () { var t = b.textContent; b.textContent = 'Copié'; setTimeout(function () { b.textContent = t; }, 1500); };
-    if (navigator.clipboard) navigator.clipboard.writeText(txt).then(ok, function () { prompt('Copie ce lien :', txt); });
-    else prompt('Copie ce lien :', txt);
+    var txt = b.getAttribute('data-partage');
+    var ok = function () { annonce('Le lien a bien été copié'); };
+    var ko = function () { if (copieSecours(txt)) ok(); else prompt('Copie ce lien :', txt); };
+    if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText(txt).then(ok, ko);
+    else ko();
   });
 })();
 </script>
